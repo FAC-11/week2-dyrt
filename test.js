@@ -54,30 +54,33 @@ test('Does it leave input arguments unchanged?', function(t) {
 });
 
 
-test('function 3', function(t) {
+test('original array els unchanged?', function(t) {
   let ourmutableToDo = theconstantTodo.map(x => x);
   let expectedResult = toDoWith1True.map(x => x);
 
-    let theNewTodo = [];
-  let idToUse = 0;
+  let theNewTodo = [];
+  let idToUse = 1;
 
   // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-  logic.markTodo(ourmutableToDo, 1);
+  logic.markTodo(ourmutableToDo, idToUse);
   t.deepEqual(expectedResult, ourmutableToDo);
-
-  // this element will have its done value toggled
 
   //  t.pass();
   t.end();
 });
 
+test('toggled ok?', function(t) {
+  let ourmutableToDo = theconstantTodo.map(x => x);
 
+  let theNewTodo = [];
+  let idToUse = 1;
 
+    // this element will have its done value toggled
+  logic.markTodo(ourmutableToDo, idToUse);
+  t.deepEqual(true, ourmutableToDo[1].done);
+  logic.markTodo(ourmutableToDo, idToUse);
+  t.deepEqual(false, ourmutableToDo[1].done);
 
-
-
-
-//test('Example test', function(t) {
-//  t.pass();
-//    t.end();
-//}); //blah
+  //  t.pass();
+  t.end();
+});
