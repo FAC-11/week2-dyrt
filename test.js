@@ -42,7 +42,7 @@ test('Add to do', function(t) {
     {
       id: 0,
       description: 'smash avocados',
-      done: true,
+      done: true
     },
     {
       id: 1,
@@ -58,44 +58,16 @@ test('Add to do', function(t) {
   t.end();
 });
 
-/* checks if new todo is added at the end */
 
-
+//This test checks if the new item has an id added.
 test('Add to do', function(t) {
-  const original = [
-    {
-      id: 0,
-      description: 'smash avocados',
-      done: true,
-    },
-    {
-      id: 1,
-      description: 'make coffee',
-      done: false,
-    },
-  ];
+  const original = [];
   const newTodo = {
     description: 'make more coffee',
   };
-  const actual = logic.addTodo(original, newTodo);
-  const expected = [
-    {
-      id: 0,
-      description: 'smash avocados',
-      done: true,
-    },
-    {
-      id: 1,
-      description: 'make coffee',
-      done: false,
-    },
-    {
-      id: 2,
-      description: 'make more coffee',
-      done: false,
-    }
-  ];
-  t.deepEqual(actual, expected, "New Todo is added to the end of original list");
+  const actual = typeof logic.addTodo(original, newTodo)[0].id;
+  const expected = 'number';
+  t.equal( actual , expected, "ID number is added to new item");
   t.end();
 });
 
@@ -104,10 +76,12 @@ test('Add to do', function(t) {
   const newTodo = {
     description: 'make more coffee',
   };
-  const actual = logic.addTodo(original, newTodo);
-  t.equal(typeof actual.id, 'number', "ID number is added to new item");
+  const actual = typeof logic.addTodo(original, newTodo)[0].done;
+  const expected = 'boolean';
+  t.equal(actual , expected, "Done property is added to new item");
   t.end();
 });
+
 
 //These tests are for markToDo
 
