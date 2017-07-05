@@ -23,9 +23,7 @@ test('Add to do', function(t) {
     },
   ];
   const newTodo = {
-    id: 2,
     description: 'make more coffee',
-    done: false,
   };
   const newList = logic.addTodo(original, newTodo);
   t.deepEqual(original, original, "Input is unchanged");
@@ -49,9 +47,7 @@ test('Add to do', function(t) {
     },
   ];
   const newTodo = {
-    id: 2,
     description: 'make more coffee',
-    done: false,
   };
   const actual = logic.addTodo(original, newTodo);
   const expected = [
@@ -72,5 +68,15 @@ test('Add to do', function(t) {
     }
   ];
   t.deepEqual(actual, expected, "New Todo is added to the end of original list");
+  t.end();
+});
+
+test('Add to do', function(t) {
+  const original = [];
+  const newTodo = {
+    description: 'make more coffee',
+  };
+  const actual = logic.addTodo(original, newTodo);
+  t.equal(typeof actual.id, 'number', "ID number is added to new item");
   t.end();
 });
