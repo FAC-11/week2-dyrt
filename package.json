@@ -1,0 +1,24 @@
+{
+  "name": "week2-dyrt",
+  "version": "1.0.0",
+  "description": "To Do List Project: Team DYRT",
+  "main": "dom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAC-11/week2-dyrt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAC-11/week2-dyrt/issues"
+  },
+  "homepage": "https://github.com/FAC-11/week2-dyrt#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.7.0"
+  }
+}
