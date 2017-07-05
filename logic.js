@@ -25,11 +25,28 @@ var todoFunctions = {
     // return a new array, this should not contain any todo with an id of idToDelete
     // hint: array.filter
   },
-  markTodo: function(todos, idToMark) {
-    // should leave the input argument todos unchanged
-    // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-    // this element will have its done value toggled
-    // hint: array.map
+
+  // markTodo spec: leave the input argument todos unchanged;   in the new todo array, all elements will remain unchanged except the one with id: idToToggle - this element will have its done value toggled
+  markTodo: function(todos, idToToggle) {
+    let withToggle = todos.map(function(x) {
+      console.log (x.id,(x.id!==idToToggle)? x : 'not x')
+      if (x.id!==idToToggle) return (x);
+      else {
+        console.log ('toggling', x);
+        var newObj = Object.assign({}, x);
+        newObj.done = !newObj.done;
+
+        return (newObj);  //  Object.assign(y,x,{done: !x.done})
+      }
+    });
+
+  //  let withToggle = todos.map(x => x);
+  //  withToggle.forEach (el => {
+  //    if (el.id === idToToggle) {
+  //      el.done = !(el.done)};
+  //  });
+    return (withToggle);
+
   },
   sortTodos: function(todos, sortFunction) {
     // stretch goal! Do this last
@@ -40,5 +57,5 @@ var todoFunctions = {
 };
 
 if (typeof module !== 'undefined') {
-  module.exports = todoFunctions ;
+  module.exports = todoFunctions;
 }
