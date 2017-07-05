@@ -14,7 +14,17 @@ const theconstantTodo = [{
     done: false,
   },
 ];
-
+const toDoWith1True = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
+  {
+    id: 1,
+    description: 'make coffee',
+    done: true,
+  },
+];
 
 // Tests start here
 
@@ -44,6 +54,22 @@ test('Does it leave input arguments unchanged?', function(t) {
 });
 
 
+test('function 3', function(t) {
+  let ourmutableToDo = theconstantTodo.map(x => x);
+  let expectedResult = toDoWith1True.map(x => x);
+
+    let theNewTodo = [];
+  let idToUse = 0;
+
+  // in the new todo array, all elements will remain unchanged except the one with id: idToMark
+  logic.markTodo(ourmutableToDo, 1);
+  t.deepEqual(expectedResult, ourmutableToDo);
+
+  // this element will have its done value toggled
+
+  //  t.pass();
+  t.end();
+});
 
 
 
