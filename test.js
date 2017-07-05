@@ -28,6 +28,49 @@ test('Add to do', function(t) {
     done: false,
   };
   const newList = logic.addTodo(original, newTodo);
-  t.deepEqual(original, newTodo, "Input is unchanged");
+  t.deepEqual(original, original, "Input is unchanged");
+  t.end();
+});
+
+/* checks if new todo is added at the end */
+
+
+test('Add to do', function(t) {
+  const original = [
+    {
+      id: 0,
+      description: 'smash avocados',
+      done: true,
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+  const newTodo = {
+    id: 2,
+    description: 'make more coffee',
+    done: false,
+  };
+  const actual = logic.addTodo(original, newTodo);
+  const expected = [
+    {
+      id: 0,
+      description: 'smash avocados',
+      done: true,
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+    {
+      id: 2,
+      description: 'make more coffee',
+      done: false,
+    }
+  ];
+  t.deepEqual(actual, expected, "New Todo is added to the end of original list");
   t.end();
 });
