@@ -27,8 +27,8 @@ test('Does it leave input arguments unchanged?', function(t) {
 let ourmutableToDo = theconstantTodo.map (x=>x);    //this may be in logic.js
 let theNewTodo = [];
 
-    // should leave the input argument todos unchanged
-functionDoneTo (ourmutableToDo);
+// should leave the input argument todos unchanged
+markTodo (ourmutableToDo);
 t.equal (theconstantTodo,ourmutableToDo);
 }
 
@@ -39,7 +39,7 @@ let ourmutableToDo = theconstantTodo.map (x=>x);    //this may be in logic.js
 let theNewTodo = [];
 
 // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-functionDoneTo (ourmutableToDo);
+markTodo (ourmutableToDo);
 t.equal (expectedresult,ourmutableToDo);
 
 }
@@ -52,7 +52,7 @@ t.equal (expectedresult,ourmutableToDo);
   t.end();
 });
 
-  stufff
+  
 
 
 
