@@ -33,11 +33,55 @@ const toDoWith1True = [{
 
 test('Add to do', function(t) {
   const actual = logic.addTodo([], {});
-  t.ok(Array.isArray(actual), "check return value is an array");
-
+  t.ok (Array.isArray(actual), "Return value is an array");
   t.end();
-
 });
+
+test('Add to do', function(t) {
+  const original = [
+    {
+      id: 0,
+      description: 'smash avocados',
+      done: true
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+  const newTodo = {
+    description: 'make more coffee',
+  };
+  const newList = logic.addTodo(original, newTodo);
+  t.deepEqual(original, original, "Input is unchanged");
+  t.end();
+});
+
+
+//This test checks if the new item has an id added.
+test('Add to do', function(t) {
+  const original = [];
+  const newTodo = {
+    description: 'make more coffee',
+  };
+  const actual = typeof logic.addTodo(original, newTodo)[0].id;
+  const expected = 'number';
+  t.equal( actual , expected, "ID number is added to new item");
+  t.end();
+});
+
+test('Add to do', function(t) {
+  const original = [];
+  const newTodo = {
+    description: 'make more coffee',
+  };
+  const actual = typeof logic.addTodo(original, newTodo)[0].done;
+  const expected = 'boolean';
+  t.equal(actual , expected, "Done property is added to new item");
+  t.end();
+});
+
 
 //These tests are for markToDo
 
