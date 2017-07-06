@@ -83,8 +83,6 @@ test('Add to do', function(t) {
 });
 
 
-//These tests are for markToDo
-
 test('Does it leave input arguments unchanged?', function(t) {
 
   let ourmutableToDo = theconstantTodo.map(x => x); //this may be in logic.js
@@ -165,10 +163,32 @@ test("Sort To Do function", function(t) {
 
 
 
-test( "Sort To Do function", function(t){
-  
+//These tests are for sortToDo, testing the (unique) sortFunction
 
-  logic.sortTodos(actual, sortFunction);
-  t.deepEqual(actual, expected, 'Does the sortFunction have same signature as the sort function in array.sort');
+test( "Sort To Do function", function(t){
+
+  const original = [
+    {
+      id: 7,
+      description: 'smash avocados',
+      done: true
+    },
+    {
+      id: 4,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+
+//naughty broken sortFunction
+
+    function sortFunction (input) {
+      input[0] = {} ;
+    }
+
+
+  actual = logic.sortTodos(original, SortFunction);    //relies on one unique sortFunction, ie name not reused anywhere
+                                                          //in test.js or logic.js
+  t.deepEqual(actual, original.sort(), 'Does the sortFunction have same signature as the sort function in array.sort');
   t.end();
 });
