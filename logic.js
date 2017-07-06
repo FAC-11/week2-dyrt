@@ -39,6 +39,8 @@ var todoFunctions = {
     // hint: array.map
   },
   sortTodos: function(todos, sortFunction) {
+
+    return todos
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged
     // sortFunction will have same signature as the sort function in array.sort

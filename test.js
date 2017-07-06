@@ -128,3 +128,43 @@ test('toggled ok?', function(t) {
   //  t.pass();
   t.end();
 });
+
+// The tests below are for the SortToDO function
+
+// should leave the input arguement todos unchanged
+
+test("Sort To Do function", function(t) {
+
+  let actual = theconstantTodo.map(function (x) { return x} ); //this may be in logic.js
+
+  // should leave the input argument todos unchanged
+
+  // function sortFunction (input) {
+  //   input[0] = {} ;
+  // }
+
+  let expected =   [{
+      id: 0,
+      description: 'smash avocados',
+      done: true,
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+
+  logic.sortTodos(actual, sortFunction);
+
+  t.deepEqual(actual, expected,'Does it leave input arguments unchanged?');
+  t.end();
+});
+
+
+test( "Sort To Do function", function(t){
+
+
+  t.deepEqual(actual, expected, 'Does it leave input arguments unchanged?');
+  t.end();
+});
