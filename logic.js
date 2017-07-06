@@ -28,11 +28,11 @@ var todoFunctions = {
     return todos.concat([newItem]);
   },
   deleteTodo: function(todos, idToDelete) {
-    var newArray = todos.map(function(x) {
-      return x;
+    var newArray = todos.map(function(el) {
+      return Object.assign({}, el);
     });
-    return newArray.filter(function(x) {
-      return x.id !== idToDelete;
+    return newArray.filter(function(el) {
+      return el.id !== idToDelete;
     });
   },
 
@@ -40,7 +40,7 @@ var todoFunctions = {
   markTodo: function(todos, idToToggle) {
     let withToggle = todos.map(function(el) {
       if (el.id!==idToToggle) {
-        return (el);
+        return Object.assign({}, el);
       }
       else {
         var newObj = Object.assign({}, el);
