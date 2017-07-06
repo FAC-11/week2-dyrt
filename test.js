@@ -200,11 +200,21 @@ test('MarkToDo', function(t) {
     description: 'make coffee',
     done: false,
   }];
+  let expected = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
+  {
+    id: 1,
+    description: 'make coffee',
+    done: true,
+  }];
 
-  let output = logic.markTodo(input, idToUse);
-  var actual = output[1].done;
-  var expected = true;
+  var id = 1;
 
-  t.equal(actual, expected, 'Toggles item done');
+  let actual = logic.markTodo(input, id);
+
+  t.deepEqual(actual, expected, 'Toggles item done');
   t.end();
 });
