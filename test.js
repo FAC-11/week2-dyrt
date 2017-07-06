@@ -123,6 +123,35 @@ test('Delete To Do', function (t){
   t.end();
 });
 
+//return all other elements of original array
+
+test ( "Delete To Do", function (t) {
+  const original = [
+    {
+      id: 0,
+      description: 'smash avocados',
+      done: true
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+
+const expected =  [ {
+    id: 0,
+    description: 'smash avocados',
+    done: true
+  },] ;
+
+
+
+  const newList = logic.deleteTodo(original, 1);
+  t.deepEqual(newList, expected , 'All non-deleted elements are returned');
+  t.end();
+});
+
 //These tests are for markToDo
 
 test('Does it leave input arguments unchanged?', function(t) {
