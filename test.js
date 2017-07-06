@@ -3,28 +3,18 @@ var logic = require('./logic');
 
 
 // This is a test ToDo to remain immutable so as to keep tests pure
-const theconstantTodo = [{
-    id: 0,
-    description: 'smash avocados',
-    done: true,
-  },
-  {
-    id: 1,
-    description: 'make coffee',
-    done: false,
-  },
-];
-const toDoWith1True = [{
-    id: 0,
-    description: 'smash avocados',
-    done: true,
-  },
-  {
-    id: 1,
-    description: 'make coffee',
-    done: true,
-  },
-];
+
+//  let toDoWith1True = [{
+//     id: 0,
+//     description: 'smash avocados',
+//     done: true,
+//   },
+//   {
+//     id: 1,
+//     description: 'make coffee',
+//     done: true,
+//   },
+// ];
 
 // Tests start here
 
@@ -58,7 +48,6 @@ test('Add to do', function(t) {
   t.end();
 });
 
-
 //This test checks if the new item has an id added.
 test('Add to do', function(t) {
   const original = [];
@@ -82,49 +71,74 @@ test('Add to do', function(t) {
   t.end();
 });
 
+test('MarkToDo', function(t) {
+  let actual = [{
+      id: 0,
+      description: 'smash avocados',
+      done: true,
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+  let expected = [{
+      id: 0,
+      description: 'smash avocados',
+      done: true,
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
 
-//These tests are for markToDo
-
-test('Does it leave input arguments unchanged?', function(t) {
-
-  let ourmutableToDo = theconstantTodo.map(x => x); //this may be in logic.js
-  let theNewTodo = [];
   let dummyId = 0;
 
-  // should leave the input argument todos unchanged
-  logic.markTodo(ourmutableToDo, dummyId);
-  t.deepEqual(theconstantTodo, ourmutableToDo);
+  theNewTodo = logic.markTodo(actual, dummyId);
+  t.deepEqual(actual, expected, 'Inputs should be unchanged');
   t.end();
 });
 
 
-test('original array els unchanged?', function(t) {
-  let ourmutableToDo = theconstantTodo.map(x => x);
-  let expectedResult = toDoWith1True.map(x => x);
-
-  let theNewTodo = [];
+test('MarkToDo', function(t) {
+   let input = [{
+      id: 0,
+      description: 'smash avocados',
+      done: true,
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
   let idToUse = 1;
+  let output = logic.markTodo(input, idToUse);
 
   // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-  logic.markTodo(ourmutableToDo, idToUse);
-  t.deepEqual(expectedResult, ourmutableToDo);
-
-  //  t.pass();
+  t.deepEqual(output[0], input[0], 'Rest of todo list unchanged');
   t.end();
 });
 
-test('toggled ok?', function(t) {
-  let ourmutableToDo = theconstantTodo.map(x => x);
+test('MarkToDo', function(t) {
+  let input = [{
+      id: 0,
+      description: 'smash avocados',
+      done: true,
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
 
-  let theNewTodo = [];
-  let idToUse = 1;
+  var idToUse = 1;
+  let output = logic.markTodo(input, idToUse);
 
-    // this element will have its done value toggled
-  logic.markTodo(ourmutableToDo, idToUse);
-  t.deepEqual(true, ourmutableToDo[1].done);
-  logic.markTodo(ourmutableToDo, idToUse);
-  t.deepEqual(false, ourmutableToDo[1].done);
-
-  //  t.pass();
+  t.equal(output[idToUse].done, !input[idToUse].done, 'Toggles item done');
   t.end();
 });
