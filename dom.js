@@ -41,9 +41,22 @@
 
     // add markTodo button
     var markButtonNode = document.createElement('button');
+
     markButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.markTodo(state, todo.id);
+      console.log ('before:', event.target);
+      if (this.classList.contains('todo__markbutton--marked')){
+        this.classList.remove('todo__markbutton--marked');
+        }
+      else {
+        this.classList.add('todo__markbutton--marked');
+        };
+
+
+      //this.classList.toggle('todo__markbutton--marked');
+      console.log ('after:', event.target);
       update(newState);
+
     });
     markButtonNode.classList.add('todo__markbutton');
     todoNode.appendChild(markButtonNode);
