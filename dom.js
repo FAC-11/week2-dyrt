@@ -48,15 +48,17 @@
   // bind create todo form
   if (addTodoForm) {
     addTodoForm.addEventListener('submit', function(event) {
-      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-      // what does event.preventDefault do?
-      // what is inside event.target?
 
-      var description = '?'; // event.target ....
+      event.preventDefault() ;
+      var newDescription = document.getElementById("add-todo").description.value ;
+        console.log("our way", newDescription);
+          console.log(event.target.description.value);
+        var newState = todoFunctions.addTodo(state, newDescription) ;
+  console.log(" before update" , newState);
+      // what is inside event.target? - The entire form
 
-      // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
       update(newState);
+      console.log(" after update" , newState);
     });
   }
 
