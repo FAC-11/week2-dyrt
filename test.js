@@ -3,28 +3,18 @@ var logic = require('./logic');
 
 
 // This is a test ToDo to remain immutable so as to keep tests pure
-const theconstantTodo = [{
-    id: 0,
-    description: 'smash avocados',
-    done: true,
-  },
-  {
-    id: 1,
-    description: 'make coffee',
-    done: false,
-  },
-];
-const toDoWith1True = [{
-    id: 0,
-    description: 'smash avocados',
-    done: true,
-  },
-  {
-    id: 1,
-    description: 'make coffee',
-    done: true,
-  },
-];
+
+//  let toDoWith1True = [{
+//     id: 0,
+//     description: 'smash avocados',
+//     done: true,
+//   },
+//   {
+//     id: 1,
+//     description: 'make coffee',
+//     done: true,
+//   },
+// ];
 
 // Tests start here
 
@@ -57,7 +47,6 @@ test('Add to do', function(t) {
   t.equal(original.length, 2, "Input is unchanged");
   t.end();
 });
-
 
 //This test checks if the new item has an id added.
 test('Add to do', function(t) {
@@ -101,6 +90,7 @@ test('Delete To Do', function (t) {
   t.equal(original.length, 2, "Input is unchanged");
   t.end();
 });
+
 // return a new array, this should not contain any todo with an id of idToDelete
 test('Delete To Do', function (t){
   const original = [
@@ -115,6 +105,7 @@ test('Delete To Do', function (t){
       done: false,
     },
   ];
+
   const newList = logic.deleteTodo(original, 1);
   const check = newList.filter(function (x){return x.id === 1});
   t.deepEqual(check.length, 0, 'New array should not contain deleted ID');
@@ -122,7 +113,6 @@ test('Delete To Do', function (t){
 });
 
 //return all other elements of original array
-
 test ( "Delete To Do", function (t) {
   const original = [
     {
@@ -136,62 +126,74 @@ test ( "Delete To Do", function (t) {
       done: false,
     },
   ];
-
-const expected =  [ {
+  const expected =  [ {
     id: 0,
     description: 'smash avocados',
     done: true
   },] ;
-
-
 
   const newList = logic.deleteTodo(original, 1);
   t.deepEqual(newList, expected , 'All non-deleted elements are returned');
   t.end();
 });
 
-//These tests are for markToDo
+// Mark todo tests
+test('MarkToDo', function(t) {
+  let actual = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+  let expected = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    }];
 
-test('Does it leave input arguments unchanged?', function(t) {
-
-  let ourmutableToDo = theconstantTodo.map(x => x); //this may be in logic.js
-  let theNewTodo = [];
   let dummyId = 0;
 
-  // should leave the input argument todos unchanged
-  logic.markTodo(ourmutableToDo, dummyId);
-  t.deepEqual(theconstantTodo, ourmutableToDo);
+  theNewTodo = logic.markTodo(actual, dummyId);
+  t.deepEqual(actual, expected, 'Inputs should be unchanged');
   t.end();
 });
 
+test('MarkToDo', function(t) {
+  let input = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
+  {
+    id: 1,
+    description: 'make coffee',
+    done: false,
+  }];
+  let expected = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
+  {
+    id: 1,
+    description: 'make coffee',
+    done: true,
+  }];
 
-test('original array els unchanged?', function(t) {
-  let ourmutableToDo = theconstantTodo.map(x => x);
-  let expectedResult = toDoWith1True.map(x => x);
+  var id = 1;
 
-  let theNewTodo = [];
-  let idToUse = 1;
+  let actual = logic.markTodo(input, id);
 
-  // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-  logic.markTodo(ourmutableToDo, idToUse);
-  t.deepEqual(expectedResult, ourmutableToDo);
-
-  //  t.pass();
-  t.end();
-});
-
-test('toggled ok?', function(t) {
-  let ourmutableToDo = theconstantTodo.map(x => x);
-
-  let theNewTodo = [];
-  let idToUse = 1;
-
-    // this element will have its done value toggled
-  logic.markTodo(ourmutableToDo, idToUse);
-  t.deepEqual(true, ourmutableToDo[1].done);
-  logic.markTodo(ourmutableToDo, idToUse);
-  t.deepEqual(false, ourmutableToDo[1].done);
-
-  //  t.pass();
+  t.deepEqual(actual, expected, 'Toggles item done');
   t.end();
 });
