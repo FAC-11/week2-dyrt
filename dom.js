@@ -39,6 +39,7 @@
     });
     markButtonNode.classList.add('todo__markbutton');
     todoNode.appendChild(markButtonNode);
+      //add a feature (maybe here) to change the class to --marked if the todo has a "done" of "true"
     // add classes for css
 
     return todoNode;
