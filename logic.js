@@ -14,7 +14,7 @@ var todoFunctions = {
 
     return incrementCounter;
   })(),
-  addTodo: function(todos, newTodo) {
+  addTodo: function(todos, description) {
     // should leave the input argument todos unchanged
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
@@ -22,7 +22,7 @@ var todoFunctions = {
     var newId = this.generateId();
     var newItem = {
       id: newId,
-      description: newTodo.description,
+      description: description,
       done: false
     };
     return todos.concat([newItem]);
