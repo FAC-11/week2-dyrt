@@ -162,9 +162,13 @@ test("Sort To Do function", function(t) {
 });
 
 
+
+
+
 test( "Sort To Do function", function(t){
+  
 
-
-  t.deepEqual(actual, expected, 'Does it leave input arguments unchanged?');
+  logic.sortTodos(actual, sortFunction);
+  t.deepEqual(actual, expected, 'Does the sortFunction have same signature as the sort function in array.sort');
   t.end();
 });
