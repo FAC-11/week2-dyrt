@@ -28,17 +28,12 @@ var todoFunctions = {
     return todos.concat([newItem]);
   },
   deleteTodo: function(todos, idToDelete) {
-    const original = [
-      {
-        id: 0,
-        description: 'smash avocados',
-        done: true
-      },
-      {
-        description: 'make coffee',
-        done: false,
-      },];
-    return original ;
+    var newArray = todos.map(function(x) {
+      return x;
+    });
+    return newArray.filter(function(x) {
+      return x.id !== 1;
+    });
   },
   markTodo: function(todos, idToMark) {
     // should leave the input argument todos unchanged

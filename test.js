@@ -116,9 +116,7 @@ test('Delete To Do', function (t){
     },
   ];
   const newList = logic.deleteTodo(original, 1);
-  console.log('fuction output', newList);
   const check = newList.filter(function (x){return x.id === 1});
-  console.log('check', check);
   t.deepEqual(check.length, 0, 'New array should not contain deleted ID');
   t.end();
 });
