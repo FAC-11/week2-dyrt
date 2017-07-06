@@ -25,10 +25,17 @@
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
+    deleteButtonNode.classList.add('todo__deletebutton');
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
-
+    var markButtonNode = document.createElement('button');
+    markButtonNode.addEventListener('click', function(event) {
+      var newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+    markButtonNode.classList.add('todo__markbutton');
+    todoNode.appendChild(markButtonNode);
     // add classes for css
 
     return todoNode;
