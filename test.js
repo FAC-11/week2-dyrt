@@ -168,27 +168,6 @@ test('MarkToDo', function(t) {
   t.end();
 });
 
-
-test('MarkToDo', function(t) {
-  let input = [{
-    id: 0,
-    description: 'smash avocados',
-    done: true,
-  },
-    {
-      id: 1,
-      description: 'make coffee',
-      done: false,
-    },
-  ];
-  let idToUse = 1;
-  let output = logic.markTodo(input, idToUse);
-
-  // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-  t.deepEqual(output[0], input[0], 'Rest of todo list unchanged');
-  t.end();
-});
-
 test('MarkToDo', function(t) {
   let input = [{
     id: 0,
