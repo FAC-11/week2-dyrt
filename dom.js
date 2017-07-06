@@ -6,10 +6,18 @@
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
 
-  var state = [
-    { id: -3, description: 'first todo' },
-    { id: -2, description: 'second todo' },
-    { id: -1, description: 'third todo' },
+  var state = [{
+      id: -3,
+      description: 'first todo'
+    },
+    {
+      id: -2,
+      description: 'second todo'
+    },
+    {
+      id: -1,
+      description: 'third todo'
+    },
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -39,7 +47,7 @@
     });
     markButtonNode.classList.add('todo__markbutton');
     todoNode.appendChild(markButtonNode);
-      //add a feature (maybe here) to change the class to --marked if the todo has a "done" of "true"
+    //add a feature (maybe here) to change the class to --marked if the todo has a "done" of "true"
     // add classes for css
 
     return todoNode;
@@ -48,14 +56,11 @@
   // bind create todo form
   if (addTodoForm) {
     addTodoForm.addEventListener('submit', function(event) {
-      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-      // what does event.preventDefault do?
-      // what is inside event.target?
 
-      var description = '?'; // event.target ....
-
-      // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
+      event.preventDefault();
+      var newDescription = document.getElementById("add-todo").description.value;
+      var newState = todoFunctions.addTodo(state, newDescription);
+      // what is inside event.target? - The entire form
       update(newState);
     });
   }
