@@ -1,16 +1,41 @@
 /* styling for to do list items */
+ul {
+  list-style: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+}
+li {
+  height: 3.5rem;
+}
 .todo__description {
+    clear: both;
+    padding: 0.5rem;
+}
 
+.todo__description--marked {
+    text-decoration: line-through;
 }
 
 .todo__deletebutton {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: white;
+  background-image: url('./images/delete.png');
+  background-size: contain;
+  border: none;
 
 }
 
 .todo__markbutton {
-
+  float:left;
+  height: 2rem;
+  width: 2rem;
+  background-color: white;
+  background-image: url('./images/unchecked.png');
+  background-size: contain;
+  border: none;
 }
 
 .todo__markbutton--marked {
-
+  background-image: url('./images/checked.png');
 }
