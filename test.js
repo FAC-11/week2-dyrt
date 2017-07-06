@@ -201,9 +201,10 @@ test('MarkToDo', function(t) {
     done: false,
   }];
 
-  var idToUse = 1;
   let output = logic.markTodo(input, idToUse);
+  var actual = output[1].done;
+  var expected = true;
 
-  t.equal(output[idToUse].done, !input[idToUse].done, 'Toggles item done');
+  t.equal(actual, expected, 'Toggles item done');
   t.end();
 });
