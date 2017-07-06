@@ -54,7 +54,7 @@ test('Add to do', function(t) {
     description: 'make more coffee',
   };
   const newList = logic.addTodo(original, newTodo);
-  t.deepEqual(original.length, 2, "Input is unchanged");
+  t.equal(original.length, 2, "Input is unchanged");
   t.end();
 });
 
@@ -98,7 +98,7 @@ test('Delete To Do', function (t) {
     },
   ];
   const newList = logic.deleteTodo(original, 1);
-  t.deepEqual(original.length, 2, "Input is unchanged");
+  t.equal(original.length, 2, "Input is unchanged");
   t.end();
 });
 // return a new array, this should not contain any todo with an id of idToDelete

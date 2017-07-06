@@ -32,7 +32,7 @@ var todoFunctions = {
       return x;
     });
     return newArray.filter(function(x) {
-      return x.id !== 1;
+      return x.id !== idToDelete;
     });
   },
   markTodo: function(todos, idToMark) {
