@@ -1,6 +1,12 @@
 /* styling for to do list items */
+ul {
+  list-style: none;
+}
+li {
+  height: 3rem;
+}
 .todo__description {
-
+    clear: both;
 }
 
 .todo__deletebutton {
@@ -8,9 +14,15 @@
 }
 
 .todo__markbutton {
-
+  float:left;
+  height: 2rem;
+  width: 2rem;
+  background-color: white;
+  background-image: url('./images/unchecked.png');
+  background-size: contain;
+  border: none;
 }
 
 .todo__markbutton--marked {
-
+  background-image: url('./images/checked.png');
 }
