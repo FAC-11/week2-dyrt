@@ -44,7 +44,7 @@ test('Add to do', function(t) {
     description: 'make more coffee',
   };
   const newList = logic.addTodo(original, newTodo);
-  t.deepEqual(original, original, "Input is unchanged");
+  t.equal(original.length, 2, "Input is unchanged");
   t.end();
 });
 
@@ -71,12 +71,79 @@ test('Add to do', function(t) {
   t.end();
 });
 
-test('MarkToDo', function(t) {
-  let actual = [{
+//These tests are for deleteTodo
+// should leave the input argument todos unchanged
+test('Delete To Do', function (t) {
+  const original = [
+    {
       id: 0,
       description: 'smash avocados',
-      done: true,
+      done: true
     },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+  const newList = logic.deleteTodo(original, 1);
+  t.equal(original.length, 2, "Input is unchanged");
+  t.end();
+});
+
+// return a new array, this should not contain any todo with an id of idToDelete
+test('Delete To Do', function (t){
+  const original = [
+    {
+      id: 0,
+      description: 'smash avocados',
+      done: true
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+
+  const newList = logic.deleteTodo(original, 1);
+  const check = newList.filter(function (x){return x.id === 1});
+  t.deepEqual(check.length, 0, 'New array should not contain deleted ID');
+  t.end();
+});
+
+//return all other elements of original array
+test ( "Delete To Do", function (t) {
+  const original = [
+    {
+      id: 0,
+      description: 'smash avocados',
+      done: true
+    },
+    {
+      id: 1,
+      description: 'make coffee',
+      done: false,
+    },
+  ];
+  const expected =  [ {
+    id: 0,
+    description: 'smash avocados',
+    done: true
+  },] ;
+
+  const newList = logic.deleteTodo(original, 1);
+  t.deepEqual(newList, expected , 'All non-deleted elements are returned');
+  t.end();
+});
+
+// Mark todo tests
+test('MarkToDo', function(t) {
+  let actual = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
     {
       id: 1,
       description: 'make coffee',
@@ -84,16 +151,15 @@ test('MarkToDo', function(t) {
     },
   ];
   let expected = [{
-      id: 0,
-      description: 'smash avocados',
-      done: true,
-    },
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
     {
       id: 1,
       description: 'make coffee',
       done: false,
-    },
-  ];
+    }];
 
   let dummyId = 0;
 
@@ -104,11 +170,11 @@ test('MarkToDo', function(t) {
 
 
 test('MarkToDo', function(t) {
-   let input = [{
-      id: 0,
-      description: 'smash avocados',
-      done: true,
-    },
+  let input = [{
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
     {
       id: 1,
       description: 'make coffee',
@@ -125,16 +191,15 @@ test('MarkToDo', function(t) {
 
 test('MarkToDo', function(t) {
   let input = [{
-      id: 0,
-      description: 'smash avocados',
-      done: true,
-    },
-    {
-      id: 1,
-      description: 'make coffee',
-      done: false,
-    },
-  ];
+    id: 0,
+    description: 'smash avocados',
+    done: true,
+  },
+  {
+    id: 1,
+    description: 'make coffee',
+    done: false,
+  }];
 
   var idToUse = 1;
   let output = logic.markTodo(input, idToUse);

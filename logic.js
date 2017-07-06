@@ -28,9 +28,12 @@ var todoFunctions = {
     return todos.concat([newItem]);
   },
   deleteTodo: function(todos, idToDelete) {
-    // should leave the input argument todos unchanged
-    // return a new array, this should not contain any todo with an id of idToDelete
-    // hint: array.filter
+    var newArray = todos.map(function(x) {
+      return x;
+    });
+    return newArray.filter(function(x) {
+      return x.id !== idToDelete;
+    });
   },
 
   // markTodo spec: leave the input argument todos unchanged;   in the new todo array, all elements will remain unchanged except the one with id: idToToggle - this element will have its done value toggled
