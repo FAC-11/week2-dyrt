@@ -1,15 +1,28 @@
 /* styling for to do list items */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 2.5rem;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5em;
+}
+form {
+}
 ul {
-  list-style: none;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.5rem;
+    list-style: none;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 li {
-  height: 3.5rem;
+    padding: 0.5em 0;
 }
 .todo__description {
     clear: both;
-    padding: 0.5rem;
+    padding: 0.5em;
 }
 
 .todo__description--marked {
@@ -17,25 +30,51 @@ li {
 }
 
 .todo__deletebutton {
-  height: 1.5rem;
-  width: 1.5rem;
-  background-color: white;
-  background-image: url('./images/delete.png');
-  background-size: contain;
-  border: none;
+    height: 2em;
+    width: 2em;
+    background-color: white;
+    background-image: url('./images/delete.png');
+    background-size: contain;
+    border: none;
 
 }
 
 .todo__markbutton {
-  float:left;
-  height: 2rem;
-  width: 2rem;
-  background-color: white;
-  background-image: url('./images/unchecked.png');
-  background-size: contain;
-  border: none;
+    float:left;
+    height: 2em;
+    width: 2em;
+    background-color: white;
+    background-image: url('./images/unchecked.png');
+    background-size: contain;
+    border: none;
 }
 
 .todo__markbutton--marked {
-  background-image: url('./images/checked.png');
+    background-image: url('./images/checked.png');
+}
+
+.add-todo__submit {
+    height: 3em;
+    min-width: 6em;
+    background-color: #078F4F;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-todo__input {
+    line-height: 1.5em;
+    border: 2px solid black; 
+    border-radius: 5px;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        font-size: 2rem;
+        width: 60%;
+    }
+    .add-todo__submit {
+        height: 2em;
+        min-width: 5em;
+    }
 }
