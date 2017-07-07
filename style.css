@@ -27,8 +27,8 @@ li {
 }
 
 .todo__deletebutton {
-    height: 2em;
-    width: 2em;
+    height: 2.5em;
+    width: 2.5em;
     background-color: white;
     background-image: url('./images/delete.png');
     background-size: contain;
@@ -37,8 +37,8 @@ li {
 }
 
 .todo__markbutton {
-    height: 2em;
-    width: 2em;
+    height: 2.5em;
+    width: 2.5em;
     background-color: white;
     background-image: url('./images/unchecked.png');
     background-size: contain;
@@ -50,7 +50,7 @@ li {
 }
 
 .add-todo__submit {
-    height: 3em;
+    height: 2.5em;
     min-width: 6em;
     background-color: #078F4F;
     color: #fff;
@@ -59,7 +59,7 @@ li {
 }
 
 .add-todo__input {
-    line-height: 1.5em;
+    height: 2.5em;
     border: 2px solid black; 
     border-radius: 5px;
 }
@@ -70,7 +70,7 @@ li {
         width: 60%;
     }
     .add-todo__submit {
-        height: 2em;
+        height: 2.5em;
         min-width: 5em;
     }
 }
