@@ -8,15 +8,18 @@
 
   var state = [{
       id: -3,
-      description: 'first todo'
+      description: 'Do shopping',
+
     },
     {
       id: -2,
-      description: 'second todo'
+      description: 'Buy shoes',
+
     },
     {
       id: -1,
-      description: 'third todo'
+      description: 'Call Dave',
+
     },
   ]; // this is our initial todoList
 
@@ -28,7 +31,12 @@
     // add span holding description
     var descriptionNode = document.createElement('span');
     descriptionNode.textContent = todo.description;
-    descriptionNode.classList.add('todo__description');
+    if (todo.done === true ) {
+      descriptionNode.classList.add('todo__description' , 'todo__description--marked');
+    } else {
+      descriptionNode.classList.add('todo__description' ) ;
+    }
+
     todoNode.appendChild(descriptionNode);
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
@@ -43,10 +51,16 @@
     var markButtonNode = document.createElement('button');
     markButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.markTodo(state, todo.id);
+
       update(newState);
+
     });
-    markButtonNode.classList.add('todo__markbutton');
+    if (todo.done === true ) {
+      markButtonNode.classList.add('todo__markbutton', 'todo__markbutton--marked');}
+      else {
+        markButtonNode.classList.add('todo__markbutton');}
     todoNode.appendChild(markButtonNode);
+
     //add a feature (maybe here) to change the class to --marked if the todo has a "done" of "true"
     // add classes for css
 
