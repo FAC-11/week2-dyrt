@@ -28,25 +28,6 @@
     var todoNode = document.createElement('li');
     // you will need to use addEventListener
 
-    // add span holding description
-    var descriptionNode = document.createElement('span');
-    descriptionNode.textContent = todo.description;
-    if (todo.done === true ) {
-      descriptionNode.classList.add('todo__description' , 'todo__description--marked');
-    } else {
-      descriptionNode.classList.add('todo__description' ) ;
-    }
-
-    todoNode.appendChild(descriptionNode);
-    // this adds the delete button
-    var deleteButtonNode = document.createElement('button');
-    deleteButtonNode.addEventListener('click', function(event) {
-      var newState = todoFunctions.deleteTodo(state, todo.id);
-      update(newState);
-    });
-    deleteButtonNode.classList.add('todo__deletebutton');
-    todoNode.appendChild(deleteButtonNode);
-
     // add markTodo button
     var markButtonNode = document.createElement('button');
     markButtonNode.addEventListener('click', function(event) {
@@ -56,10 +37,37 @@
 
     });
     if (todo.done === true ) {
-      markButtonNode.classList.add('todo__markbutton', 'todo__markbutton--marked');}
+      markButtonNode.classList.add('todo__markbutton', 'todo__markbutton--marked');
+      markButtonNode.setAttribute('aria-label', 'Click to mark task as not completed');
+    }
       else {
         markButtonNode.classList.add('todo__markbutton');}
+        markButtonNode.setAttribute('aria-label', 'Click to mark task as complete');
     todoNode.appendChild(markButtonNode);
+
+    // add span holding description
+    var descriptionNode = document.createElement('span');
+    descriptionNode.textContent = todo.description;
+    if (todo.done === true ) {
+      descriptionNode.classList.add('todo__description' , 'todo__description--marked');
+      markButtonNode.setAttribute('aria-label', 'This task has been done');
+    } else {
+      descriptionNode.classList.add('todo__description' ) ;
+      markButtonNode.setAttribute('aria-label', 'This task has not been done');
+    }
+
+    todoNode.appendChild(descriptionNode);
+    // this adds the delete button
+    var deleteButtonNode = document.createElement('button');
+    deleteButtonNode.addEventListener('click', function(event) {
+      var newState = todoFunctions.deleteTodo(state, todo.id);
+      update(newState);
+    });
+    deleteButtonNode.setAttribute('aria-label', 'Click to delete this task');
+    deleteButtonNode.classList.add('todo__deletebutton');
+    todoNode.appendChild(deleteButtonNode);
+
+
 
     //add a feature (maybe here) to change the class to --marked if the todo has a "done" of "true"
     // add classes for css

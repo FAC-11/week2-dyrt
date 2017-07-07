@@ -21,8 +21,12 @@ li {
     padding: 0.5em 0;
 }
 .todo__description {
+<<<<<<< HEAD
     clear: both;
     padding: 0.5em;
+=======
+    padding: 0.5rem;
+>>>>>>> master
 }
 
 .todo__description--marked {
@@ -40,7 +44,6 @@ li {
 }
 
 .todo__markbutton {
-    float:left;
     height: 2em;
     width: 2em;
     background-color: white;
