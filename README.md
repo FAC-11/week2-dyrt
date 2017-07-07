@@ -35,12 +35,27 @@ We sized up the font and the buttons from the default browser font size using re
 ### Connecting the parts
 We have an Immediately Invoked Function Expression (IIFE, pronounced 'iffey') that runs as soon as the page loads. This contains all of the code for interacting with the DOM, keeping this isolated from the logic of the to do functions, encouraging the creation of testable functions.
 
-_write some more here_
 
 ## What did you learn?
-### something about testing
-### something about separating logic and DOM
-### something about cloning arrays of objects
+
+### Testing
+
+It was our first time using TDD for a lot of the team. One thing we spent some time thinking about was how to test the things we were looking for. For example, when testing if the input argument had changed, one option was to look at the length of the argument rather than doing a deepEqual and looking at the contents of the object/array.
+
+We also learnt about different types of tests. For example, the `d.ok()` test for booleans .
+
+Additionally we learnt about keeping the pure functions from the DOM browser execution functions. This allowed us to keep our TDD tests distinct.
+
+
+### Useful CSS
+
+The `text-decoration` property will allow you to draw lines under, over, or through some text, and to change those line colours. For example we set this property to `text-decoration: line-through;` to show when tasks had been completed.
+
+For accessibility, we learnt that it was not ideal to use CSS to change the order of elements. It was important to set it as we wanted in the DOM. This is because screen readers use the order DOM to decide on the order in which they read out text.  The CSS does not change the order of the DOM.
+
+### Cloning Arrays & Objects
+
+We learnt that if you set a new variable to equal a current array or object, any changes you make to that new variable will also happen to the original array or object. This is because the Javascript engine does not create a new object or array, but creates a reference to the existing one . In order to clone an existing array we can use `array.map` and for an object we can use `Object.assign ( {}, original object)` . 
 
 ## Useful links
 * We found our icons on this [free icon site](https://iconmonstr.com/)
