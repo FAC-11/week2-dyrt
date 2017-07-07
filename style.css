@@ -7,10 +7,10 @@ body {
     width: 90%;
     margin: 0 auto;
     padding: 0.5em;
+    font-family: 'Open Sans', sans-serif;
 }
 ul {
     list-style: none;
-    font-family: 'Open Sans', sans-serif;
     width: 100%;
     margin: 0;
     padding: 0;
