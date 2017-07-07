@@ -8,7 +8,6 @@ li {
   height: 3.5rem;
 }
 .todo__description {
-    clear: both;
     padding: 0.5rem;
 }
 
@@ -27,7 +26,6 @@ li {
 }
 
 .todo__markbutton {
-  float:left;
   height: 2rem;
   width: 2rem;
   background-color: white;
