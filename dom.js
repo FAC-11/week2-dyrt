@@ -49,10 +49,10 @@
     var descriptionNode = document.createElement('span');
     descriptionNode.textContent = todo.description;
     if (todo.done === true ) {
-      descriptionNode.classList.add('todo__description' , 'todo__description--marked');
+      descriptionNode.classList.add('todo__description' , 'todo__description--marked', 'text-overflow');
       markButtonNode.setAttribute('aria-label', 'This task has been done');
     } else {
-      descriptionNode.classList.add('todo__description' ) ;
+      descriptionNode.classList.add('todo__description', 'text-overflow' ) ;
       markButtonNode.setAttribute('aria-label', 'This task has not been done');
     }
 
